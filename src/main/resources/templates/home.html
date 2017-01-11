@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{{^name}}
+Welcome!! Login below to add a messages, reminders, and whathaveyou's!<br>
+<form action="/login" method="post">
+    <input type="text" placeholder="Enter Username" name="userName"/>
+    <button type="submit">Login</button>
+</form>
+{{/name}}
+
+{{#name}}
+{{.}}, you can now create some messages, reminders, or whathaveyou's!
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form><br>
+
+<form action="/add-message" method="post">
+    <input type="text" placeholder="Add message here..." name="addMessage"/>
+    <button type="submit">Add whathaveyou...</button>
+</form>
+
+<form action="/delete-message" method="post">
+    <input type="text" placeholder="Delete Message"
+</form>
+
+<ol>
+    {{#message}}
+    <li>{{text}}</li>
+    {{/message}}
+</ol>
+
+{{/name}}
+</body>
+</html>
